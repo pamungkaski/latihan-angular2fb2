@@ -1,0 +1,22 @@
+<!--The whole content below can be removed with the new code.-->
+<h1>{{title}}</h1>
+<h2> My Attractions </h2>
+<div>
+  <label> ID: {{attraction.id}}</label><br>
+  <label>Name: </label><input [(ngModel)]="attraction.name" placeholder="Name"/><br/>
+  <label>Latitude: </label><input [(ngModel)]="attraction.location.latitude" placeholder="Latitude"/><br/>
+  <label>Longitude: </label><input [(ngModel)]="attraction.location.longitude" placeholder="Longitude"/><br/>
+  <button (click)="onSelect(attraction)"> Save </button>
+</div>
+<div ng-if="arrayAtt">
+  <h2>List Of Attractions</h2>
+  <ul>
+    <li *ngFor="let att of arrayAtt | async">
+      <label> ID: {{att.$key}}</label><br>
+      <label> Name: {{att.name}}</label><br>
+      <label> Latitude: {{att.location.latitude}}</label><br>
+      <label> Longitude: {{att.location.longitude}}</label><br>
+    </li>
+  </ul>
+</div>
+
