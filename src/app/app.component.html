@@ -6,13 +6,13 @@
   <label>Name: </label><input [(ngModel)]="attraction.name" placeholder="Name"/><br/>
   <label>Latitude: </label><input [(ngModel)]="attraction.location.latitude" placeholder="Latitude"/><br/>
   <label>Longitude: </label><input [(ngModel)]="attraction.location.longitude" placeholder="Longitude"/><br/>
-  <button (click)="onSelect(attraction)"> Save </button>
+  <button (click)="onSubmit(attraction)"> Submit </button>
 </div>
 <div ng-if="arrayAtt">
   <h2>List Of Attractions</h2>
   <ul>
     <li *ngFor="let att of arrayAtt | async">
-      <label> ID: {{att.id}}</label><br>
+      <label> ID: {{att.$key}}</label><br>
       <label>Name: </label><input [(ngModel)]="att.name" placeholder="Name"/><br/>
       <label>Latitude: </label><input [(ngModel)]="att.location.latitude" placeholder="Latitude"/><br/>
       <label>Longitude: </label><input [(ngModel)]="att.location.longitude" placeholder="Longitude"/><br/>

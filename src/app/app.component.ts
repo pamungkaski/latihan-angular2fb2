@@ -76,7 +76,7 @@ export class AppComponent {
     this.arrayAtt = db.list('/attractions') as FirebaseListObservable<Attraction[]>;
     // console.log(this.arrayAtt)
   }
-  onSelect(attraction: Attractions) {
+  onSubmit(attraction: Attractions) {
     this.items = this.db.object('/attractions/' + attraction.id);
     this.items.set({
       name: attraction.name,
@@ -94,6 +94,24 @@ export class AppComponent {
       tags: attraction.tags
     });
     attraction.id =  UUID.UUID();
+  }
+  onSelect(attraction: Attraction){
+    this.items = this.db.object('/attractions/' + attraction.$key);
+    this.items.set({
+      name: attraction.name,
+      location: {
+        latitude: attraction.location.latitude,
+        longitude: attraction.location.longitude
+      },
+      icon: attraction.icon,
+      phone_number: attraction.phone_number,
+      rating: attraction.rating,
+      opening_hours: attraction.opening_hours,
+      permanently_close: attraction.permanently_close,
+      website: attraction.website,
+      vicinity: attraction.vicinity,
+      tags: attraction.tags
+    });
   }
 }
 export class Attractions {
