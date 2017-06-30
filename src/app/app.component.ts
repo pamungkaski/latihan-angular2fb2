@@ -16,7 +16,57 @@ export class AppComponent {
     location: {
       latitude: '',
       longitude: ''
-    }
+    },
+    icon: '',
+    phone_number: '',
+    rating: 0,
+    opening_hours: [{
+      open: false,
+      time: {
+        start: '',
+        close: '',
+      }
+    }, {
+      open: false,
+      time: {
+        start: '',
+        close: '',
+      }
+    }, {
+      open: false,
+      time: {
+        start: '',
+        close: '',
+      }
+    }, {
+      open: false,
+      time: {
+        start: '',
+        close: '',
+      }
+    }, {
+      open: false,
+      time: {
+        start: '',
+        close: '',
+      }
+    }, {
+      open: false,
+      time: {
+        start: '',
+        close: '',
+      }
+    }, {
+      open: false,
+      time: {
+        start: '',
+        close: '',
+      }
+    }],
+    permanently_close: false,
+    website: '',
+    vicinity: '',
+    tags: []
   };
   arrayAtt: FirebaseListObservable<Attraction[]>;
   items: FirebaseObjectObservable<any[]>;
@@ -33,7 +83,15 @@ export class AppComponent {
       location: {
         latitude: attraction.location.latitude,
         longitude: attraction.location.longitude
-      }
+      },
+      icon: attraction.icon,
+      phone_number: attraction.phone_number,
+      rating: attraction.rating,
+      opening_hours: attraction.opening_hours,
+      permanently_close: attraction.permanently_close,
+      website: attraction.website,
+      vicinity: attraction.vicinity,
+      tags: attraction.tags
     });
     attraction.id =  UUID.UUID();
   }
@@ -41,24 +99,117 @@ export class AppComponent {
 export class Attractions {
   id: string;
   name: string;
-  icon: string;
-  phone_number: string;
-  rating: string;
-  opening_hours: {
-
-  };
-  icon: string;
   location: {
     latitude: string,
     longitude: string
-  }
+  };
+  icon: string;
+  phone_number: string;
+  rating: number;
+  opening_hours: [{
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }, {
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }, {
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }, {
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }, {
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }, {
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }, {
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }];
+  permanently_close: boolean;
+  website: string;
+  vicinity: string;
+  tags: string[]
 }
 interface Attraction {
-  $key?: number;
-  name?: string;
+  $key: number;
+  name: string;
   location: {
     latitude: string;
     longitude: string
-}
+  }
+  icon: string;
+  phone_number: string;
+  rating: number;
+  opening_hours: [{
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }, {
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }, {
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }, {
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }, {
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }, {
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }, {
+    open: boolean,
+    time: {
+      start: string,
+      close: string,
+    }
+  }];
+  permanently_close: boolean;
+  website: string;
+  vicinity: string;
+  tags: string[]
 }
 
