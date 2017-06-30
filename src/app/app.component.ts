@@ -84,10 +84,7 @@ export class AppComponent {
     this.items = this.db.object('/attractions/' + attraction.id);
     this.items.set({
       name: attraction.name,
-      location: {
-        latitude: attraction.location.latitude,
-        longitude: attraction.location.longitude
-      },
+      location: attraction.location,
       icon: attraction.icon,
       phone_number: attraction.phone_number,
       rating: attraction.rating,
@@ -103,10 +100,7 @@ export class AppComponent {
     this.items = this.db.object('/attractions/' + attraction.$key);
     this.items.set({
       name: attraction.name,
-      location: {
-        latitude: attraction.location.latitude,
-        longitude: attraction.location.longitude
-      },
+      location: attraction.location,
       icon: attraction.icon,
       phone_number: attraction.phone_number,
       rating: attraction.rating,
