@@ -91,7 +91,8 @@ export class AppComponent {
       opening_hours: attraction.opening_hours,
       permanently_close: attraction.permanently_close,
       website: attraction.website,
-      vicinity: attraction.vicinity,
+      vicinity: attraction.location.route + ', ' + attraction.location.city
+      + ', ' + attraction.location.state + ', ' + attraction.location.country,
       tags: attraction.tags
     });
     attraction.id =  UUID.UUID();
@@ -107,7 +108,8 @@ export class AppComponent {
       opening_hours: attraction.opening_hours,
       permanently_close: attraction.permanently_close,
       website: attraction.website,
-      vicinity: attraction.vicinity,
+      vicinity: attraction.location.route + ', ' + attraction.location.city
+      + ', ' + attraction.location.state + ', ' + attraction.location.country,
       tags: attraction.tags
     });
   }

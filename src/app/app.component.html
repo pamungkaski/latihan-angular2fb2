@@ -17,6 +17,7 @@
   <ul>
     <li *ngFor="let att of arrayAtt | async">
       <label> ID: {{att.$key}}</label><br>
+      <label> Vicinity: {{att.vicinity}}</label><br>
       <label>Name: </label><input [(ngModel)]="att.name" placeholder="Name"/><br/>
       <label>Latitude: </label><input [(ngModel)]="att.location.latitude" placeholder="Latitude"/><br/>
       <label>Longitude: </label><input [(ngModel)]="att.location.longitude" placeholder="Longitude"/><br/>
