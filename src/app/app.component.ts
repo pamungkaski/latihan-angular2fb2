@@ -41,6 +41,13 @@ export class AppComponent {
 export class Attractions {
   id: string;
   name: string;
+  icon: string;
+  phone_number: string;
+  rating: string;
+  opening_hours: {
+
+  };
+  name: string;
   location: {
     latitude: string,
     longitude: string
