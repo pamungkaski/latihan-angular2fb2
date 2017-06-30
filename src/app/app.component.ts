@@ -97,7 +97,6 @@ export class AppComponent {
       vicinity: attraction.vicinity,
       tags: attraction.tags
     });
-    attraction = new Attractions;
     attraction.id =  UUID.UUID();
   }
   onSelect(attraction: Attraction) {
