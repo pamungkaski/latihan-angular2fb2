@@ -66,7 +66,7 @@ export class AppComponent {
     permanently_close: false,
     website: '',
     vicinity: '',
-    tags: []
+    tags: ['']
   };
   arrayAtt: FirebaseListObservable<Attraction[]>;
   items: FirebaseObjectObservable<any[]>;
