@@ -47,7 +47,7 @@ export class Attractions {
   opening_hours: {
 
   };
-  name: string;
+  icon: string;
   location: {
     latitude: string,
     longitude: string
