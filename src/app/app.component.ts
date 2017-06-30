@@ -15,7 +15,11 @@ export class AppComponent {
     name: '',
     location: {
       latitude: '',
-      longitude: ''
+      longitude: '',
+      route: '',
+      city: '',
+      state: '',
+      country: ''
     },
     icon: '',
     phone_number: '',
@@ -93,9 +97,10 @@ export class AppComponent {
       vicinity: attraction.vicinity,
       tags: attraction.tags
     });
+    attraction = new Attractions;
     attraction.id =  UUID.UUID();
   }
-  onSelect(attraction: Attraction){
+  onSelect(attraction: Attraction) {
     this.items = this.db.object('/attractions/' + attraction.$key);
     this.items.set({
       name: attraction.name,
@@ -119,7 +124,11 @@ export class Attractions {
   name: string;
   location: {
     latitude: string,
-    longitude: string
+    longitude: string,
+    route: string,
+    city: string,
+    state: string,
+    country: string
   };
   icon: string;
   phone_number: string;
@@ -177,7 +186,11 @@ interface Attraction {
   name: string;
   location: {
     latitude: string;
-    longitude: string
+    longitude: string;
+    route: string;
+    city: string;
+    state: string;
+    country: string
   }
   icon: string;
   phone_number: string;

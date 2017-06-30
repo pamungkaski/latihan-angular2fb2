@@ -6,6 +6,10 @@
   <label>Name: </label><input [(ngModel)]="attraction.name" placeholder="Name"/><br/>
   <label>Latitude: </label><input [(ngModel)]="attraction.location.latitude" placeholder="Latitude"/><br/>
   <label>Longitude: </label><input [(ngModel)]="attraction.location.longitude" placeholder="Longitude"/><br/>
+  <label>Street: </label><input [(ngModel)]="attraction.location.route" placeholder="Street"/><br/>
+  <label>City: </label><input [(ngModel)]="attraction.location.city" placeholder="City"/><br/>
+  <label>State / Province: </label><input [(ngModel)]="attraction.location.state" placeholder="State"/><br/>
+  <label>Country: </label><input [(ngModel)]="attraction.location.country" placeholder="Country"/><br/>
   <button (click)="onSubmit(attraction)"> Submit </button>
 </div>
 <div ng-if="arrayAtt">
@@ -16,6 +20,10 @@
       <label>Name: </label><input [(ngModel)]="att.name" placeholder="Name"/><br/>
       <label>Latitude: </label><input [(ngModel)]="att.location.latitude" placeholder="Latitude"/><br/>
       <label>Longitude: </label><input [(ngModel)]="att.location.longitude" placeholder="Longitude"/><br/>
+      <label>Street: </label><input [(ngModel)]="att.location.route" placeholder="Street"/><br/>
+      <label>City: </label><input [(ngModel)]="att.location.city" placeholder="City"/><br/>
+      <label>State / Province: </label><input [(ngModel)]="att.location.state" placeholder="State"/><br/>
+      <label>Country: </label><input [(ngModel)]="att.location.country" placeholder="Country"/><br/>
       <button (click)="onSelect(att)"> Save </button>
     </li>
   </ul>
