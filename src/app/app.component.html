@@ -25,7 +25,7 @@
       <label>City: </label><input [(ngModel)]="att.location.city" placeholder="City"/><br/>
       <label>State / Province: </label><input [(ngModel)]="att.location.state" placeholder="State"/><br/>
       <label>Country: </label><input [(ngModel)]="att.location.country" placeholder="Country"/><br/>
-      <button (click)="onSelect(att)"> Save </button>
+      <button (click)="onUpdate(att)"> Save </button><button (click)="onDelete(att)"> Delete </button>
     </li>
   </ul>
 </div>

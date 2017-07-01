@@ -94,10 +94,16 @@ export class AppComponent {
       vicinity: attraction.location.route + ', ' + attraction.location.city
       + ', ' + attraction.location.state + ', ' + attraction.location.country,
       tags: attraction.tags
-    });
+    })
+      .then(function() {
+        console.log('Add succeeded.')
+      })
+      .catch(function(error) {
+        console.log('Add failed: ' + error.message)
+      });
     attraction.id =  UUID.UUID();
   }
-  onSelect(attraction: Attraction) {
+  onUpdate(attraction: Attraction) {
     this.items = this.db.object('/attractions/' + attraction.$key);
     this.items.set({
       name: attraction.name,
@@ -111,7 +117,23 @@ export class AppComponent {
       vicinity: attraction.location.route + ', ' + attraction.location.city
       + ', ' + attraction.location.state + ', ' + attraction.location.country,
       tags: attraction.tags
-    });
+    })
+      .then(function() {
+        console.log('Update succeeded.')
+      })
+      .catch(function(error) {
+        console.log('Update failed: ' + error.message)
+      });
+  }
+  onDelete(attraction: Attraction) {
+    this.items = this.db.object('/attractions/'+ attraction.$key);
+    this.items.remove()
+      .then(function() {
+        console.log('Remove succeeded.')
+      })
+      .catch(function(error) {
+        console.log('Remove failed: ' + error.message)
+      });
   }
 }
 export class Attractions {
