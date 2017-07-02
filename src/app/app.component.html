@@ -10,6 +10,7 @@
   <label>City: </label><input [(ngModel)]="attraction.location.city" placeholder="City"/><br/>
   <label>State / Province: </label><input [(ngModel)]="attraction.location.state" placeholder="State"/><br/>
   <label>Country: </label><input [(ngModel)]="attraction.location.country" placeholder="Country"/><br/>
+  <label>Recommended Duration (minutes): </label><input [(ngModel)]="attraction.recommended_duration" placeholder="Minutes"/><br/>
   <button (click)="onSubmit(attraction)"> Submit </button>
 </div>
 <div ng-if="arrayAtt">
@@ -25,6 +26,7 @@
       <label>City: </label><input [(ngModel)]="att.location.city" placeholder="City"/><br/>
       <label>State / Province: </label><input [(ngModel)]="att.location.state" placeholder="State"/><br/>
       <label>Country: </label><input [(ngModel)]="att.location.country" placeholder="Country"/><br/>
+      <label>Recommended Duration (minutes): </label><input [(ngModel)]="att.recommended_duration" placeholder="Minutes"/><br/>
       <button (click)="onUpdate(att)"> Save </button><button (click)="onDelete(att)"> Delete </button>
     </li>
   </ul>

@@ -70,7 +70,8 @@ export class AppComponent {
     permanently_close: false,
     website: '',
     vicinity: '',
-    tags: ['']
+    tags: [''],
+    recommended_duration: 0
   };
   arrayAtt: FirebaseListObservable<Attraction[]>;
   items: FirebaseObjectObservable<any[]>;
@@ -93,7 +94,8 @@ export class AppComponent {
       website: attraction.website,
       vicinity: attraction.location.route + ', ' + attraction.location.city
       + ', ' + attraction.location.state + ', ' + attraction.location.country,
-      tags: attraction.tags
+      tags: attraction.tags,
+      recommended_duration: attraction.recommended_duration
     })
       .then(function() {
         console.log('Add succeeded.')
@@ -116,7 +118,8 @@ export class AppComponent {
       website: attraction.website,
       vicinity: attraction.location.route + ', ' + attraction.location.city
       + ', ' + attraction.location.state + ', ' + attraction.location.country,
-      tags: attraction.tags
+      tags: attraction.tags,
+      recommended_duration: attraction.recommended_duration
     })
       .then(function() {
         console.log('Update succeeded.')
@@ -196,7 +199,8 @@ export class Attractions {
   permanently_close: boolean;
   website: string;
   vicinity: string;
-  tags: string[]
+  tags: string[];
+  recommended_duration: number;
 }
 interface Attraction {
   $key: number;
@@ -258,6 +262,7 @@ interface Attraction {
   permanently_close: boolean;
   website: string;
   vicinity: string;
-  tags: string[]
+  tags: string[];
+  recommended_duration: number;
 }
 
