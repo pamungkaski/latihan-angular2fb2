@@ -71,8 +71,10 @@ export class AppComponent {
     website: '',
     vicinity: '',
     tags: [''],
-    recommended_duration: 0
+    recommended_duration: 0,
+    type: 'Place'
   };
+  aTag: string;
   arrayAtt: FirebaseListObservable<Attraction[]>;
   items: FirebaseObjectObservable<any[]>;
   constructor(
@@ -80,6 +82,11 @@ export class AppComponent {
 ) {
     this.arrayAtt = db.list('/attractions') as FirebaseListObservable<Attraction[]>;
     // console.log(this.arrayAtt)
+  }
+  onAddTag(attraction: Attraction, tag) {
+    attraction.tags.push(tag);
+    tag = '';
+    this.onUpdate(attraction)
   }
   onSubmit(attraction: Attractions) {
     this.items = this.db.object('/attractions/' + attraction.id);
@@ -95,7 +102,8 @@ export class AppComponent {
       vicinity: attraction.location.route + ', ' + attraction.location.city
       + ', ' + attraction.location.state + ', ' + attraction.location.country,
       tags: attraction.tags,
-      recommended_duration: attraction.recommended_duration
+      recommended_duration: attraction.recommended_duration,
+      type: attraction.type
     })
       .then(function() {
         console.log('Add succeeded.')
@@ -119,7 +127,8 @@ export class AppComponent {
       vicinity: attraction.location.route + ', ' + attraction.location.city
       + ', ' + attraction.location.state + ', ' + attraction.location.country,
       tags: attraction.tags,
-      recommended_duration: attraction.recommended_duration
+      recommended_duration: attraction.recommended_duration,
+      type: attraction.type
     })
       .then(function() {
         console.log('Update succeeded.')
@@ -201,6 +210,7 @@ export class Attractions {
   vicinity: string;
   tags: string[];
   recommended_duration: number;
+  type: string;
 }
 interface Attraction {
   $key: number;
@@ -264,5 +274,6 @@ interface Attraction {
   vicinity: string;
   tags: string[];
   recommended_duration: number;
+  type: string;
 }
 

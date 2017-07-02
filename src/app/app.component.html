@@ -10,12 +10,13 @@
   <label>City: </label><input [(ngModel)]="attraction.location.city" placeholder="City"/><br/>
   <label>State / Province: </label><input [(ngModel)]="attraction.location.state" placeholder="State"/><br/>
   <label>Country: </label><input [(ngModel)]="attraction.location.country" placeholder="Country"/><br/>
+  <label>Attraction Type: </label><input [(ngModel)]="attraction.type" placeholder="Attraction Type"/><br/>
   <label>Recommended Duration (minutes): </label><input [(ngModel)]="attraction.recommended_duration" placeholder="Minutes"/><br/>
   <button (click)="onSubmit(attraction)"> Submit </button>
 </div>
 <div ng-if="arrayAtt">
   <h2>List Of Attractions</h2>
-  <ul>
+  <ol>
     <li *ngFor="let att of arrayAtt | async">
       <label> ID: {{att.$key}}</label><br>
       <label> Vicinity: {{att.vicinity}}</label><br>
@@ -26,9 +27,14 @@
       <label>City: </label><input [(ngModel)]="att.location.city" placeholder="City"/><br/>
       <label>State / Province: </label><input [(ngModel)]="att.location.state" placeholder="State"/><br/>
       <label>Country: </label><input [(ngModel)]="att.location.country" placeholder="Country"/><br/>
+      <label>Attraction Type: </label><input [(ngModel)]="att.type" placeholder="Attraction Type"/><br/>
       <label>Recommended Duration (minutes): </label><input [(ngModel)]="att.recommended_duration" placeholder="Minutes"/><br/>
+      <label *ngFor="let tag of att.tags">
+        # {{tag}}
+      </label><br/>
+      <input [(ngModel)]="aTag" placeholder="Tag"/><button (click)="onAddTag(att, aTag)">Add Tag</button><br/>
       <button (click)="onUpdate(att)"> Save </button><button (click)="onDelete(att)"> Delete </button>
     </li>
-  </ul>
+  </ol>
 </div>
 
