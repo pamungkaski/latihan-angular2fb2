@@ -100,14 +100,14 @@ export class AppComponent {
       location: attraction.location,
       icon: attraction.icon,
       phone_number: attraction.phone_number,
-      rating: attraction.rating,
+      rating: Number(attraction.rating),
       opening_hours: attraction.opening_hours,
       permanently_close: attraction.permanently_close,
       website: attraction.website,
       vicinity: attraction.location.route + ', ' + attraction.location.city
       + ', ' + attraction.location.state + ', ' + attraction.location.country,
       tags: attraction.tags,
-      recommended_duration: attraction.recommended_duration,
+      recommended_duration: Number(attraction.recommended_duration),
       type: attraction.type
     })
       .then(function() {
@@ -126,14 +126,14 @@ export class AppComponent {
       location: attraction.location,
       icon: attraction.icon,
       phone_number: attraction.phone_number,
-      rating: attraction.rating,
+      rating: Number(attraction.rating),
       opening_hours: attraction.opening_hours,
       permanently_close: attraction.permanently_close,
       website: attraction.website,
       vicinity: attraction.location.route + ', ' + attraction.location.city
       + ', ' + attraction.location.state + ', ' + attraction.location.country,
       tags: attraction.tags,
-      recommended_duration: attraction.recommended_duration,
+      recommended_duration: Number(attraction.recommended_duration),
       type: attraction.type
     })
       .then(function() {
