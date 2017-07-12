@@ -70,9 +70,9 @@ export class AppComponent {
     permanently_close: false,
     website: '',
     vicinity: '',
-    tags: [''],
+    tags: ['x'],
     recommended_duration: 0,
-    type: 'Place'
+    type: ''
   };
   aTag: string;
   arrayAtt: FirebaseListObservable<Attraction[]>;
@@ -84,13 +84,18 @@ export class AppComponent {
     // console.log(this.arrayAtt)
   }
   onAddTag(attraction: Attraction, tag) {
-    attraction.tags.push(tag);
+    if (attraction.tags[0] === 'x'){
+      attraction.tags[0] = tag
+    }else {
+      attraction.tags.push(tag);
+    }
     tag = '';
     this.onUpdate(attraction)
   }
   onSubmit(attraction: Attractions) {
     this.items = this.db.object('/attractions/' + attraction.id);
     this.items.set({
+      id: attraction.id,
       name: attraction.name,
       location: attraction.location,
       icon: attraction.icon,
@@ -116,6 +121,7 @@ export class AppComponent {
   onUpdate(attraction: Attraction) {
     this.items = this.db.object('/attractions/' + attraction.$key);
     this.items.set({
+      id: attraction.$key,
       name: attraction.name,
       location: attraction.location,
       icon: attraction.icon,
@@ -138,7 +144,7 @@ export class AppComponent {
       });
   }
   onDelete(attraction: Attraction) {
-    this.items = this.db.object('/attractions/'+ attraction.$key);
+    this.items = this.db.object('/attractions/' + attraction.$key);
     this.items.remove()
       .then(function() {
         console.log('Remove succeeded.')
@@ -213,7 +219,8 @@ export class Attractions {
   type: string;
 }
 interface Attraction {
-  $key: number;
+  $key: string;
+  id: string;
   name: string;
   location: {
     latitude: string;

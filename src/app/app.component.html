@@ -29,8 +29,10 @@
       <label>Country: </label><input [(ngModel)]="att.location.country" placeholder="Country"/><br/>
       <label>Attraction Type: </label><input [(ngModel)]="att.type" placeholder="Attraction Type"/><br/>
       <label>Recommended Duration (minutes): </label><input [(ngModel)]="att.recommended_duration" placeholder="Minutes"/><br/>
-      <label *ngFor="let tag of att.tags">
-        # {{tag}}
+      <label *ngFor="let tag of att.tags" >
+        <span ng-if="tag !== 'x'">
+          # {{tag}}
+        </span>
       </label><br/>
       <input [(ngModel)]="aTag" placeholder="Tag"/><button (click)="onAddTag(att, aTag)">Add Tag</button><br/>
       <button (click)="onUpdate(att)"> Save </button><button (click)="onDelete(att)"> Delete </button>
