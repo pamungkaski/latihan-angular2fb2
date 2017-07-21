@@ -12,6 +12,7 @@
   <label>Country: </label><input [(ngModel)]="attraction.location.country" placeholder="Country"/><br/>
   <label>Attraction Type: </label><input [(ngModel)]="attraction.type" placeholder="Attraction Type"/><br/>
   <label>Recommended Duration (minutes): </label><input [(ngModel)]="attraction.recommended_duration" placeholder="Minutes"/><br/>
+  <label>Rating: </label><input [(ngModel)]="attraction.rating" placeholder="Rating"/><br/>
   <button (click)="onSubmit(attraction)"> Submit </button>
 </div>
 <div ng-if="arrayAtt">
@@ -29,6 +30,7 @@
       <label>Country: </label><input [(ngModel)]="att.location.country" placeholder="Country"/><br/>
       <label>Attraction Type: </label><input [(ngModel)]="att.type" placeholder="Attraction Type"/><br/>
       <label>Recommended Duration (minutes): </label><input [(ngModel)]="att.recommended_duration" placeholder="Minutes"/><br/>
+      <label>Rating: </label><input [(ngModel)]="att.rating" placeholder="Rating"/><button (click)="onUpdate(att)"> Delete </button>
       <label *ngFor="let tag of att.tags" >
         <span ng-if="tag !== 'x'">
           # {{tag}}
