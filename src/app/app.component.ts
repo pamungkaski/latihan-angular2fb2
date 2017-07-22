@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2/database';
+import { FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2/database';
 import { UUID } from 'angular2-uuid'
-// import { AngularFire } from 'angularfire2'
+import { FirebaseApp } from 'angularfire2'
 // import { FirebaseService } from './services/firebase.service'
 @Component({
   selector: 'app-root',
@@ -75,14 +75,16 @@ export class AppComponent {
     type: ''
   };
   aTag: string;
+  folder: any;
   arrayAtt: FirebaseListObservable<Attraction[]>;
   items: FirebaseObjectObservable<any[]>;
   constructor(
-  private db: AngularFireDatabase
+    private fb: FirebaseApp
 ) {
-    this.arrayAtt = db.list('/attractions') as FirebaseListObservable<Attraction[]>;
+    this.fo
     // console.log(this.arrayAtt)
   }
+  db = this.fb.database();
   onAddTag(attraction: Attraction, tag) {
     if (attraction.tags[0] === 'x'){
       attraction.tags[0] = tag

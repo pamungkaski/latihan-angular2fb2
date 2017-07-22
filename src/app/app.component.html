@@ -13,12 +13,14 @@
   <label>Attraction Type: </label><input [(ngModel)]="attraction.type" placeholder="Attraction Type"/><br/>
   <label>Recommended Duration (minutes): </label><input [(ngModel)]="attraction.recommended_duration" placeholder="Minutes"/><br/>
   <label>Rating: </label><input [(ngModel)]="attraction.rating" placeholder="Rating"/><br/>
+  <input id="image" [(ngModel)]="att.icon" type="file"><br/>
   <button (click)="onSubmit(attraction)"> Submit </button>
 </div>
 <div ng-if="arrayAtt">
   <h2>List Of Attractions</h2>
   <ol>
     <li *ngFor="let att of arrayAtt | async">
+      <img src="att.icon"><br/>
       <label> ID: {{att.$key}}</label><br>
       <label> Vicinity: {{att.vicinity}}</label><br>
       <label>Name: </label><input [(ngModel)]="att.name" placeholder="Name"/><br/>
@@ -31,6 +33,7 @@
       <label>Attraction Type: </label><input [(ngModel)]="att.type" placeholder="Attraction Type"/><br/>
       <label>Recommended Duration (minutes): </label><input [(ngModel)]="att.recommended_duration" placeholder="Minutes"/><br/>
       <label>Rating: </label><input [(ngModel)]="att.rating" placeholder="Rating"/><button (click)="onUpdate(att)"> Add Rating </button><br/>
+      <input id="image" [(ngModel)]="att.icon" type="file"><br/>
       <label *ngFor="let tag of att.tags" >
         <span ng-if="tag !== 'x'">
           # {{tag}}
