@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2/database';
+import {AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2/database';
 import { UUID } from 'angular2-uuid'
-import { FirebaseApp } from 'angularfire2'
+// import { AngularFire } from 'angularfire2'
 // import { FirebaseService } from './services/firebase.service'
 @Component({
   selector: 'app-root',
@@ -72,17 +72,20 @@ export class AppComponent {
     vicinity: '',
     tags: ['x'],
     recommended_duration: 0,
-    type: ''
+    type: '',
+    description: ''
   };
   aTag: string;
-  folder: any;
   arrayAtt: FirebaseListObservable<Attraction[]>;
   items: FirebaseObjectObservable<any[]>;
-  constructor(private db: AngularFireDatabase){
-    this.arrayAtt = db.list('/attractions') as FirebaseListObservable<Attraction[]>
+  constructor(
+    private db: AngularFireDatabase
+  ) {
+    this.arrayAtt = db.list('/attractions') as FirebaseListObservable<Attraction[]>;
+    // console.log(this.arrayAtt)
   }
   onAddTag(attraction: Attraction, tag) {
-    if (attraction.tags[0] === 'x'){
+    if (attraction.tags[0] === 'x') {
       attraction.tags[0] = tag
     }else {
       attraction.tags.push(tag);
@@ -106,7 +109,8 @@ export class AppComponent {
       + ', ' + attraction.location.state + ', ' + attraction.location.country,
       tags: attraction.tags,
       recommended_duration: Number(attraction.recommended_duration),
-      type: attraction.type
+      type: attraction.type,
+      description: attraction.description
     })
       .then(function() {
         console.log('Add succeeded.')
@@ -132,7 +136,8 @@ export class AppComponent {
       + ', ' + attraction.location.state + ', ' + attraction.location.country,
       tags: attraction.tags,
       recommended_duration: Number(attraction.recommended_duration),
-      type: attraction.type
+      type: attraction.type,
+      description: attraction.description
     })
       .then(function() {
         console.log('Update succeeded.')
@@ -215,6 +220,7 @@ export class Attractions {
   tags: string[];
   recommended_duration: number;
   type: string;
+  description: string;
 }
 interface Attraction {
   $key: string;
@@ -280,5 +286,6 @@ interface Attraction {
   tags: string[];
   recommended_duration: number;
   type: string;
+  description: string;
 }
 
